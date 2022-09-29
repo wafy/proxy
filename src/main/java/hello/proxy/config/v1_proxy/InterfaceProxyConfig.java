@@ -18,8 +18,8 @@ public class InterfaceProxyConfig {
     }
 
     @Bean
-    public OrderServiceV1 orderService(LogTrace logTrace) {
-        OrderServiceV1Impl serviceImpl = new OrderServiceV1Impl(orderRepository(logTrace));
+    public OrderServiceV2 orderService(LogTrace logTrace) {
+        OrderServiceV2Impl serviceImpl = new OrderServiceV2Impl(orderRepository(logTrace));
         return new OrderServiceInterfaceProxy(serviceImpl, logTrace);
     }
 

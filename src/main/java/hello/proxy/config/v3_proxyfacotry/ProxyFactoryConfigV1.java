@@ -1,4 +1,4 @@
-package hello.proxy.config.v2_dynamicproxy;
+package hello.proxy.config.v3_proxyfacotry;
 
 import hello.proxy.app.v1.*;
 import hello.proxy.config.v3_proxyfacotry.advice.LogTraceAdvice;
@@ -27,11 +27,11 @@ public class ProxyFactoryConfigV1 {
     }
 
     @Bean
-    public OrderServiceV1 orderServiceV1(LogTrace logTrace) {
-        OrderServiceV1 orderService = new OrderServiceV1Impl(orderRepositoryV1(logTrace));
+    public OrderServiceV2 orderServiceV1(LogTrace logTrace) {
+        OrderServiceV2 orderService = new OrderServiceV2Impl(orderRepositoryV1(logTrace));
         ProxyFactory factory = new ProxyFactory(orderService);
         factory.addAdvisor(getAdvisor(logTrace));
-        OrderServiceV1 proxy = (OrderServiceV1) factory.getProxy();
+        OrderServiceV2 proxy = (OrderServiceV2) factory.getProxy();
         log.info("ProxyFactory proxy={}, target={}", proxy.getClass(), orderService.getClass());
 
         return proxy;

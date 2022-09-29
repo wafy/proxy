@@ -13,8 +13,8 @@ public class AppV1Config {
     }
 
     @Bean
-    public OrderServiceV1 orderServiceV1() {
-        return new OrderServiceV1Impl(orderRepositoryV1());
+    public OrderServiceV2 orderServiceV1() {
+        return new OrderServiceV2Impl(orderRepositoryV1());
     }
 
     @Bean
