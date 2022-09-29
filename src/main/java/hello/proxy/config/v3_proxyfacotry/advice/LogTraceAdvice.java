@@ -24,9 +24,7 @@ public class LogTraceAdvice implements MethodInterceptor {
             status = logTrace.begin(message);
 
             //로직 호출
-            Object result = invocation.proceed();
-
-            return result;
+            return invocation.proceed();
         } catch (Exception e) {
             logTrace.exception(status, e);
             throw e;
